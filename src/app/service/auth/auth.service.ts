@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {map, Observable} from "rxjs";
 
 const BASIC_URL='http://localhost:8080/'
 @Injectable({
@@ -16,4 +16,13 @@ export class AuthService {
     return this.http.post(BASIC_URL+"api/v1/user/addNewUser",signupRequest)
   }
 
+  login(email:any,password:any):Observable<any>{
+    const headers=new HttpHeaders().set('Content-Type','application/json');
+    const body={email,password}
+    return this.http.post(BASIC_URL+"api/v1/auth/authenticate",body,{
+      observe:'response' as 'body'
+    }).pipe(map(data=>{
+     return data;
+    }));
+  }
 }

@@ -1,1 +1,23 @@
-<p style="margin-top: 100px">login works!</p>
+<br>
+<div class="login-container" style="display: flex;align-items: center;justify-content: center;margin-top: 100px">
+
+  <form class="login-form" [formGroup]="loginForm">
+    <h1>Welcome Back</h1>
+    <p>Please login to your account</p>
+    <div class="input-group">
+      <input type="text" formControlName="email" id="" name="email" placeholder="Username" required>
+    </div>
+    <div class="input-group">
+      <input type="password" id="password" formControlName="password" name="password" placeholder="Password" required>
+
+    </div>
+    <button type="button" (click)="onSubmit()">Login</button>
+    <div class="bottom-text">
+      <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+      <p><a routerLink="/forgot-password">Forgot password?</a></p>
+    </div>
+  </form>
+</div>
+<br>
+
+
