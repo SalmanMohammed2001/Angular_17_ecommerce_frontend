@@ -1,0 +1,40 @@
+
+<div class="outer">
+  <div class="inner-wrapper p-5">
+      <div class="heading col-12">
+        <h1 class="" style="text-align: center">Login Form</h1>
+      </div>
+
+    <form action=""  [formGroup]="signupForm">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>User Name</mat-label>
+            <input formControlName="name" type="text" matInput placeholder="User Name" >
+          </mat-form-field>
+        </div>
+
+          <div class="col-12">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="Enter Email Here">
+          </mat-form-field>
+          </div>
+
+            <div class="col-12">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" type="password" matInput placeholder="Password">
+          </mat-form-field>
+            </div>
+        <div class="col-12">
+          <button mat-flat-button color="primary" class="col-12" type="submit" [disabled]="signupForm.invalid" (click)="onSubmit()">Primary</button>
+        </div>
+        </div>
+      </div>
+    </form>
+    </div>
+
+  </div>
+

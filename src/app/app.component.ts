@@ -15,7 +15,6 @@ export class AppComponent implements OnInit{
   title = 'E-com_Angular_17';
 
 
-
   ngOnInit(): void {
 
 
