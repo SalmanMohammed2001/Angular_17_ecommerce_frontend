@@ -1,18 +1,84 @@
+<div *ngIf="StorageService.getRole()==''">
+  <nav>
+    <input type="checkbox" id="nav-toggle2">
+    <div class="logo">E-<strong>COM</strong></div>
+    <ul class="links">
+      <!--    <li><a routerLink="/starter/order" >Order</a></li>-->
+      <li><a routerLink="/signup" >Signup</a></li>
+      <li><a routerLink="/login" >Login</a></li>
+    </ul>
+    <label for="nav-toggle1" class="icon-burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+  </nav>
+</div>
 
-<nav>
-  <input type="checkbox" id="nav-toggle1">
-  <div class="logo">E-<strong>COM</strong></div>
-  <ul class="links">
-<!--    <li><a routerLink="/starter/order" >Order</a></li>-->
-    <li><a routerLink="/signup" >Signup</a></li>
-    <li><a routerLink="/login" >Login</a></li>
-  </ul>
-  <label for="nav-toggle1" class="icon-burger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </label>
-</nav>
+<div *ngIf="StorageService.getRole()=='ADMIN'">
+  <nav >
+    <input type="checkbox" id="nav-toggle3">
+    <div class="logo">E-<strong>COM</strong></div>
+    <ul class="links">
+      <li><a routerLink="/admin/dashboard" >Dashboard</a></li>
+      <li><a routerLink="/admin/analytics" >Analytics</a></li>
+      <li><a routerLink="/admin/postCategory" >Category</a></li>
+      <li><a routerLink="/admin/postProduct" >Product</a></li>
+      <li><a routerLink="/admin/orders" >Orders</a></li>
+      <li><a routerLink="/admin/postCoupon" >P-Coupon</a></li>
+      <li><a routerLink="/admin/coupons" > Coupon</a></li>
+      <li><a (click)="logout()" > LogOut</a></li>
+    </ul>
+    <label for="nav-toggle2" class="icon-burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+  </nav>
+
+</div>
+
+<div *ngIf="StorageService.getRole()=='USER'">
+  <nav>
+    <input type="checkbox" id="nav-toggle1">
+    <div class="logo">E-<strong>COM</strong></div>
+    <ul class="links">
+      <li><a routerLink="/customer/dashboard" >Dashboard</a></li>
+      <li><a routerLink="/customer/cart" >Cart</a></li>
+      <li><a routerLink="/customer/myOrders" >Orders</a></li>
+      <li><a routerLink="/customer/wishList" >Wishlist</a></li>
+      <li><a routerLink="/customer/profile" >Profile</a></li>
+      <li><a (click)="logout()" > LogOut</a></li>
+
+    </ul>
+    <label for="nav-toggle3" class="icon-burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+  </nav>
+
+</div>
+<!--
+
+  <div *ngIf="StorageService.getRole()=='ADMIN'">
+    <nav>
+      <input type="checkbox" id="nav-toggle2">
+      <div class="logo">E-<strong>COM</strong></div>
+      <ul class="links">
+        &lt;!&ndash;    <li><a routerLink="/starter/order" >Order</a></li>&ndash;&gt;
+&lt;!&ndash;        <li><a routerLink="/signup" >Signup</a></li>&ndash;&gt;
+        <li><a routerLink="/login" >Login</a></li>
+      </ul>
+      <label for="nav-toggle1" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </label>
+    </nav>
+
+  </div>
+-->
 
 
 <router-outlet></router-outlet>

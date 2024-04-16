@@ -40,9 +40,17 @@ export class LoginComponent {
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value
     this.authService.login(email,password).subscribe((res:any)=>{
-      this.userStorage.saveToken(res.body.data.token)
-      this.userStorage.saveUser(res.body.data)
+      this.userStorage.saveToken(res.body.data.token);
+      this.userStorage.saveUser(res.body.data);
+
      this.snackBar.open("Login success",'Ok',{duration:5000});
+
+     if(StorageService.getRole()=="ADMIN"){
+       this.router.navigateByUrl("/admin/dashboard").then();
+     }else {
+       this.router.navigateByUrl("/customer/dashboard").then();
+     }
+
     },(error:any)=>{
       this.snackBar.open("Bad Credentials",'ERROR',{duration:5000});
     })
