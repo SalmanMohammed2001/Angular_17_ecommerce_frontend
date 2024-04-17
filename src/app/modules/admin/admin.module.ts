@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
+import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 
@@ -14,7 +16,8 @@ const routes:Routes =[
   declarations: [],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }
