@@ -14,7 +14,7 @@ export class AdminService {
   }
 
 
-  addCategory(category:any){
+  addCategory(category:any):Observable<any>{
     return this.http.post(BASIC_URL+"api/v1/category/save",category,{
       headers:this.createAuthorizationHeader(),
     })
