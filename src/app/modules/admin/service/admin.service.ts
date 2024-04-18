@@ -37,6 +37,11 @@ export class AdminService {
       headers:this.createAuthorizationHeader()
     });
   }
+  allProductByName(name:any):Observable<any>{
+    return this.http.get(BASIC_URL+`api/v1/product/search/${name}`,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
 
   private createAuthorizationHeader() {
     return new HttpHeaders().set(

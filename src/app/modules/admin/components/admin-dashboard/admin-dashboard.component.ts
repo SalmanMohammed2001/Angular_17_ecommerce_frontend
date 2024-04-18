@@ -6,7 +6,7 @@ import {MatButton, MatButtonModule} from "@angular/material/button";
 import {MatCard} from "@angular/material/card";
 import {RouterLink, RouterModule} from "@angular/router";
 import {NgForOf, NgIf} from "@angular/common";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatIcon} from "@angular/material/icon";
@@ -44,11 +44,16 @@ import {MatOption, MatSelect} from "@angular/material/select";
 export class AdminDashboardComponent  implements OnInit{
 
   products=[]
+  searchForm:FormGroup;
 
-  constructor(private adminService:AdminService) {
+
+  constructor(private adminService:AdminService,private  fb:FormBuilder) {
   }
 
   ngOnInit(): void {
+    this.searchForm=this.fb.group({
+      title:['',[Validators.required]]
+    })
     this.getAllProduct()
   }
 
@@ -60,8 +65,16 @@ export class AdminDashboardComponent  implements OnInit{
         this.products.push(element)
       });
     });
-
-
   }
 
+  onSubmit(){
+  const name=this.searchForm.get('title').value!
+    this.products=[];
+    this.adminService.allProductByName(name).subscribe((res)=>{
+      res.data.forEach((element: { processImg: string; byteImage: string; })=>{
+        element.processImg='data:image/jpeg;base64,'+element.byteImage
+        this.products.push(element)
+      });
+    })
+  }
 }
