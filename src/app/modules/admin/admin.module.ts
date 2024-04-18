@@ -4,6 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {HttpClientModule} from "@angular/common/http";
 import {PostcategoryComponent} from "./components/postcategory/postcategory.component";
+import {PostProductComponent} from "./components/post-product/post-product.component";
 
 
 
@@ -11,8 +12,7 @@ import {PostcategoryComponent} from "./components/postcategory/postcategory.comp
 const routes:Routes =[
   {path:"dashboard",component:AdminDashboardComponent},
   {path:"postCategory",component:PostcategoryComponent},
-
-
+  {path:"postProduct",component:PostProductComponent},
 
 ];
 

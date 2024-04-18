@@ -19,6 +19,25 @@ export class AdminService {
       headers:this.createAuthorizationHeader(),
     })
   }
+
+
+   allCategory():Observable<any>{
+    return this.http.get(BASIC_URL+"api/v1/category/list",{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+   addProduct(productDto:any):Observable<any>{
+    return this.http.post(BASIC_URL+"api/v1/product/save",productDto,{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
+   allProduct():Observable<any>{
+    return this.http.get(BASIC_URL+"api/v1/product/list",{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
       "Authorization","Bearer "+StorageService.getToken()
