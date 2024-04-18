@@ -42,6 +42,11 @@ export class AdminService {
       headers:this.createAuthorizationHeader()
     });
   }
+  deleteProduct(id:any):Observable<any>{
+    return this.http.delete(BASIC_URL+`api/v1/product/delete?id=${id}`,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
 
   private createAuthorizationHeader() {
     return new HttpHeaders().set(

@@ -7,7 +7,7 @@ import {MatCard} from "@angular/material/card";
 import {RouterLink, RouterModule} from "@angular/router";
 import {NgForOf, NgIf} from "@angular/common";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatIcon} from "@angular/material/icon";
 import {MatOption, MatSelect} from "@angular/material/select";
@@ -47,7 +47,7 @@ export class AdminDashboardComponent  implements OnInit{
   searchForm:FormGroup;
 
 
-  constructor(private adminService:AdminService,private  fb:FormBuilder) {
+  constructor(private adminService:AdminService,private  fb:FormBuilder,private  snackBar:MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -76,5 +76,25 @@ export class AdminDashboardComponent  implements OnInit{
         this.products.push(element)
       });
     })
+  }
+
+  onDelete(id:any){
+    console.log(id)
+    if(confirm("are you want delete")){
+      this.adminService.deleteProduct(id).subscribe((res)=>{
+        this.snackBar.open("Product Posted Successfully", 'close', {
+          duration: 5000
+        });
+        this.getAllProduct()
+      },(error=>{
+        this.snackBar.open('Error', 'close', {
+          duration: 5000,
+          panelClass: 'error-snackbar'
+
+        })
+      }))
+
+    }
+
   }
 }
