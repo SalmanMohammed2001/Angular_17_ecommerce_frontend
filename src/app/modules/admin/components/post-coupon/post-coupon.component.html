@@ -1,0 +1,33 @@
+<div class="container" style="margin-top: 100px">
+  <h2>Add Product</h2>
+
+  <form action=""  [formGroup]="couponForm" (submit)="addCoupon()">
+
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput placeholder="name" formControlName="name"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput placeholder="code" formControlName="code"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Discount</mat-label>
+      <input type="number" matInput placeholder="discount" formControlName="discount"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>ExpirationDate</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="expirationDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+    </mat-form-field>
+    <button mat-raised-button [disabled]="couponForm.invalid" color="primary" type="submit">Add Coupon</button>
+  </form>
+</div>
+

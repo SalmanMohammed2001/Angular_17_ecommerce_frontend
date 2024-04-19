@@ -47,6 +47,11 @@ export class AdminService {
       headers:this.createAuthorizationHeader()
     });
   }
+  addCoupon(couponDto:any){
+    return this.http.post(BASIC_URL+"api/v1/admin/coupon/save",couponDto,{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
 
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
