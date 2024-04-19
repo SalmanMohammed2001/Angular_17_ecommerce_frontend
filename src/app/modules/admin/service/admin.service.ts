@@ -52,6 +52,11 @@ export class AdminService {
       headers:this.createAuthorizationHeader(),
     })
   }
+  getAllCoupon():Observable<any>{
+    return this.http.get(BASIC_URL+"api/v1/admin/coupon/list",{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
 
   private createAuthorizationHeader() {
     return new HttpHeaders().set(

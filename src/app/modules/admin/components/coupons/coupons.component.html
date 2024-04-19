@@ -1,0 +1,25 @@
+<div class="container" style="padding: 50px;margin-top: 100px;box-shadow: white">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>code</th>
+      <th>Discount</th>
+      <th>ExpirationDate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let coupon of coupons">
+      <td>{{coupon.id}}</td>
+      <td>{{coupon.name}}</td>
+      <td>{{coupon.code}}</td>
+      <td>{{coupon.discount}}</td>
+      <td>{{coupon.expirationDate | date:'dd/MM/yyy'}}</td>
+
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
