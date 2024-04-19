@@ -86,11 +86,21 @@ export class CartComponent  implements OnInit{
     })
   }
   decreaseProductQuantity(id:any){
-
+    this.customerService.decreasedProduct(id).subscribe((res)=>{
+      this.snackBar.open('Cart Product Quantity decrease','close',{
+        duration:500
+      })
+      this.getCart()
+    });
   }
 
   increaseProductQuantity(id:any){
-
+    this.customerService.increasedProduct(id).subscribe((res)=>{
+      this.snackBar.open('Cart Product Quantity increase','close',{
+        duration:500
+      })
+      this.getCart()
+    });
   }
 
 }

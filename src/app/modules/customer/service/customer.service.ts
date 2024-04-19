@@ -53,6 +53,25 @@ export class CustomerService {
     });
   }
 
+  increasedProduct(productId:any) {
+    const cartDto = {
+      userId: StorageService.getUserId(),
+      productId: productId
+    }
+    return this.http.post(BASIC_URL + `api/v1/cart/addition`, cartDto, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  decreasedProduct(productId:any) {
+    const cartDto = {
+      userId: StorageService.getUserId(),
+      productId: productId
+    }
+    return this.http.post(BASIC_URL + `api/v1/cart/deduction`, cartDto, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
       "Authorization","Bearer "+StorageService.getToken()
