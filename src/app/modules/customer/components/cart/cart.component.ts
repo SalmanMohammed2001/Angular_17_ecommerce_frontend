@@ -76,6 +76,15 @@ export class CartComponent  implements OnInit{
       })
     })
   }
+
+  applyCoupon(){
+    this.customerService.applyCoupon(this.couponForm.get(['code'])!.value).subscribe((res)=>{
+      this.snackBar.open('coupon Applied Successfully','close',{
+        duration:500
+      })
+      this.getCart()
+    })
+  }
   decreaseProductQuantity(id:any){
 
   }
