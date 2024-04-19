@@ -14,13 +14,6 @@ export class CustomerService {
   }
 
 
-  addCategory(category:any):Observable<any>{
-    return this.http.post(BASIC_URL+"api/v1/category/save",category,{
-      headers:this.createAuthorizationHeader(),
-    })
-  }
-
-
 
 
 
@@ -34,6 +27,25 @@ export class CustomerService {
       headers:this.createAuthorizationHeader()
     });
   }
+
+  addToCart(productId:any) {
+    const cartDto = {
+      userId: StorageService.getUserId(),
+      productId: productId
+    }
+    return this.http.post(BASIC_URL + `api/v1/cart/save`, cartDto, {
+      headers: this.createAuthorizationHeader()
+    });
+
+  }
+   getCartByUserId():Observable<any>{
+    const userId= StorageService.getUserId()
+    return this.http.get(BASIC_URL+`api/v1/cart/${userId}`,{
+      headers:this.createAuthorizationHeader()
+    });
+
+  }
+
 
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
