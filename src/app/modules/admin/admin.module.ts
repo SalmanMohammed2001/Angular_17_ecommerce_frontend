@@ -7,6 +7,7 @@ import {PostcategoryComponent} from "./components/postcategory/postcategory.comp
 import {PostProductComponent} from "./components/post-product/post-product.component";
 import {PostCouponComponent} from "./components/post-coupon/post-coupon.component";
 import {CouponsComponent} from "./components/coupons/coupons.component";
+import {OrdersComponent} from "./components/orders/orders.component";
 
 
 
@@ -17,6 +18,7 @@ const routes:Routes =[
   {path:"postProduct",component:PostProductComponent},
   {path:"postCoupon",component:PostCouponComponent},
   {path:"coupons",component:CouponsComponent},
+  {path:"orders",component:OrdersComponent},
 
 ];
 

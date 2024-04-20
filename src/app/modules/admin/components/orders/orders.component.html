@@ -1,0 +1,45 @@
+
+<div class="container" style="padding: 50px;margin-top: 100px;box-shadow: white">
+  <table class="table" *ngFor="let order of orders">
+    <thead>
+    <tr>
+      <th scope="col">TrackingId</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Description</th>
+      <th scope="col">Address</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{order.trackingId}}</td>
+      <td>{{order.userName}}</td>
+      <td>{{order.amount}}</td>
+      <td>{{order.orderDescription}}</td>
+      <td>{{order.address}}</td>
+      <td>{{order.date | date:'dd/MM/yyy'}}</td>
+      <td>{{order.orderStatus}}</td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Action
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item"  (click)="changeOrderStatus(order.id,'Shipped')">Shipped</a></li>
+            <li><a class="dropdown-item" (click)="changeOrderStatus(order.id,'Deliver')" >Delivered</a></li>
+
+          </ul>
+        </div>
+      </td>
+
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+

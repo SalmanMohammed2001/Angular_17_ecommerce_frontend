@@ -58,6 +58,17 @@ export class AdminService {
     })
   }
 
+  getAllPlaceOrder():Observable<any>{
+    return this.http.get(BASIC_URL+"api/v1/admin/placeOrder/list",{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
+
+  changeOrderStatus(orderId:any,status:any):Observable<any>{
+    return this.http.get(BASIC_URL+`api/v1/admin/placeOrder/changeOrderStatus/${orderId}/${status}`,{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
       "Authorization","Bearer "+StorageService.getToken()
