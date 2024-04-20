@@ -11,6 +11,7 @@ import {MatButton, MatButtonModule, MatIconButton} from "@angular/material/butto
 import {MatFormField} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
+import {PlaceOrderComponent} from "../place-order/place-order.component";
 
 @Component({
   selector: 'app-cart',
@@ -101,6 +102,10 @@ export class CartComponent  implements OnInit{
       })
       this.getCart()
     });
+  }
+
+  placeOrder(){
+    this.dialog.open(PlaceOrderComponent)
   }
 
 }

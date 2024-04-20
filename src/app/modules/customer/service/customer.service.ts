@@ -13,10 +13,6 @@ export class CustomerService {
 
   }
 
-
-
-
-
   allProduct():Observable<any>{
     return this.http.get(BASIC_URL+"api/v1/customer/list",{
       headers:this.createAuthorizationHeader()
@@ -71,6 +67,13 @@ export class CustomerService {
     return this.http.post(BASIC_URL + `api/v1/cart/deduction`, cartDto, {
       headers: this.createAuthorizationHeader()
     });
+  }
+
+  placeOrder(orderDto:any) {
+    orderDto.userId=StorageService.getUserId()
+    return this.http.post(BASIC_URL+`api/v1/cart/placeOrder`,orderDto,{
+      headers:this.createAuthorizationHeader()
+    })
   }
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
