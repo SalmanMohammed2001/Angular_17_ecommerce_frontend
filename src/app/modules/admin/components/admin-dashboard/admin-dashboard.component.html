@@ -36,7 +36,7 @@
         </div>
         <div class="booking__info--bottom">
 
-          <button class="btn btn--primary">FAQ</button>
+          <button mat-raised-button color="primary" class="update-button" [routerLink]="['/admin/faq', product.id]">Faq</button>
           <button class="btn btn--alt" (click)="onDelete(product.id)">Delete</button>
         </div>
       </div>

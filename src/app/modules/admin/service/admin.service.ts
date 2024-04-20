@@ -69,6 +69,12 @@ export class AdminService {
       headers:this.createAuthorizationHeader(),
     })
   }
+
+  postFaq(productId:any,faqDto:any):Observable<any>{
+    return this.http.post(BASIC_URL+`api/v1/product/postFaq/${productId}`,faqDto,{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
       "Authorization","Bearer "+StorageService.getToken()

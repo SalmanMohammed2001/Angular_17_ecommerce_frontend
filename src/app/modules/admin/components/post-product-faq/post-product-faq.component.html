@@ -1,0 +1,31 @@
+
+
+<div class="container">
+  <form action="" [formGroup]="FAQForm" (ngSubmit)="postFaq()">
+    <div class="row">
+
+      <div class="inner">
+        <div style="display: flex;align-content: center;justify-content: center">
+          <h1>Faq</h1>
+        </div>
+        <div class="col-12">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="question" formControlName="question" >
+          </mat-form-field>
+        </div>
+        <div class= "col-12" >
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="answer" formControlName="answer" >
+          </mat-form-field>
+        </div>
+
+        <button type="submit" class="col-12" [disabled]="FAQForm.invalid" mat-raised-button color="primary">Post Faq</button>
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
