@@ -32,7 +32,7 @@
           <p class="booking__description">
             {{product.description}}
           </p>
-          <button class="btn btn--secondary">Purchase</button>
+          <button class="btn btn--secondary" [routerLink]="['/admin/product',product.id]">Update</button>
         </div>
         <div class="booking__info--bottom">
 
