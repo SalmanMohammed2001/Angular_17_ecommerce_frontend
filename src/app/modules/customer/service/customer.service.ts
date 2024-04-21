@@ -98,6 +98,17 @@ export class CustomerService {
       headers:this.createAuthorizationHeader()
     })
   }
+  addProductWishList(wishListDto:any):Observable<any>{
+    return this.http.post(BASIC_URL+`api/v1/wishList/save`,wishListDto,{
+      headers:this.createAuthorizationHeader(),
+    })
+  }
+  getWishListByUserId():Observable<any>{
+    const userId=StorageService.getUserId()
+    return this.http.get(BASIC_URL+`api/v1/wishList/find/${userId}`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
 
   private createAuthorizationHeader() {
     return new HttpHeaders().set(

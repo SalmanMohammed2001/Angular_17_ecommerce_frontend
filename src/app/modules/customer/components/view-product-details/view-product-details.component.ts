@@ -9,6 +9,7 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButton, MatButtonModule} from "@angular/material/button";
+import {StorageService} from "../../../../service/stroge/storage.service";
 
 @Component({
   selector: 'app-view-product-details',
@@ -78,23 +79,17 @@ export class ViewProductDetailsComponent  implements OnInit{
   }
 
   addToWishList() {
-    /*    const wishListDto={
+        const wishListDto={
           productId:this.productId,
-          userId:this.userStorageService.getUserId()
+          userId:StorageService.getUserId()
         }
         this.customerService.addProductWishList(wishListDto).subscribe((res)=>{
-          if (res.id != null) {
+
             this.snackBar.open('Product Add WishList Successfully', 'close', {
               duration: 5000
             })
 
-          } else {
-            this.snackBar.open('Already Add WishList', 'error', {
-              duration: 5000
-            })
-          }
         })
-      }*/
   }
 
 
