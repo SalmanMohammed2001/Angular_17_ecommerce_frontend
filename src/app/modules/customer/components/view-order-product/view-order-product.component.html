@@ -1,0 +1,23 @@
+
+<div style="margin-top: 150px!important;">
+  <div class="card" *ngFor="let data of orderProductDetailsList " style="padding: 50px">
+
+    <img [src]="data.processImg" alt=""  style="width: 300px;height: 290px">
+    <div class="content">
+
+      <h1 id="bold-text">Name : <span style="font-size: 18px">{{data.name}}</span></h1>
+      <p style="margin-top: 50px">price :{{data.price}}</p>
+      <p style="margin-top: 20px">quantity :{{data.quantity}}</p>
+
+
+
+      <button class="btn btn-primary  " style="margin-top: 20px;height: 40px" routerLink="/customer/review/{{data.id}}">Give Review</button>
+
+
+    </div>
+
+
+  </div>
+  <p style="align-items: center ;font-size: 20px;"> Total :{{totalAmount}}</p>
+
+</div>

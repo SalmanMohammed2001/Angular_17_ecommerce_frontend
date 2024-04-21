@@ -1,0 +1,56 @@
+<div class="center-container" *ngIf="product" style="margin-top: 150px">
+  <div class="product-card">
+    <div class="product-image">
+      <img src="data:image/jpeg;base64,{{product.byteImage}}"  alt="" >
+    </div>
+    <div class="product-details">
+      <h2>{{product.name}}</h2>
+      <p class="description">{{product.description}}</p>
+      <p class="price">Price: ${{product.price}}</p>
+      <p class="category">Category :{{product.categoryName}}>
+        <mat-icon class="heart-icon" (click)="addToWishList()" style="cursor: pointer;margin-top: 10px;background-color: pink" ></mat-icon>
+      </p>
+    </div>
+  </div>
+</div>
+
+<h1 class="section-heading" *ngIf="reviews.length>0">Customer Review</h1>
+<div *ngIf="reviews" class="review-list">
+  <div class="center-container">
+    <div class="review-card" *ngFor="let review of reviews">
+      <div class="review-img">
+        <img src="data:image/jpeg;base64,{{review.returnImg}}" alt="" class="small-image" >
+      </div>
+      <div class="review-details">
+        <h2>{{review.description}}</h2>
+        <div class="details-row">
+          <p style="padding-left:50px " class="rating">Rating:{{review.rating}}</p>
+          <hr>
+          <p class="username">UserName:{{review.username}}</p>
+        </div>
+
+       <!-- <div class="far-details">
+          <p class="question">Rating:</p>
+          <p class="question-text">{{review.rating}}</p>
+          <p class="answer">UserName</p>
+          <p class="answer-text">{{review.username}}</p>
+        </div>-->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<h1 class="section-heading" *ngIf="FAQS.length>0">Frequently Asked Question</h1>
+<div class="faq-list" *ngIf="FAQS">
+  <div class="center-container">
+    <div class="faq-card" *ngFor="let faq of FAQS">
+      <div class="far-details">
+        <p class="question">Question:</p>
+        <p class="question-text">{{faq.question}}</p>
+        <p class="answer">Answer</p>
+        <p class="answer-text">{{faq.answer}}</p>
+      </div>
+    </div>
+  </div>
+</div>

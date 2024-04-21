@@ -82,6 +82,23 @@ export class CustomerService {
       headers:this.createAuthorizationHeader()
     })
   }
+  getOrdersProduct(orderId:any):Observable<any>{
+    return this.http.get(BASIC_URL+`api/v1/review/${orderId}`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+  giveReview(reviewDto:any):Observable<any>{
+    return this.http.post(BASIC_URL+`api/v1/review/save`,reviewDto,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
+  getProductDetailsById(productId:any):Observable<any>{
+    return this.http.get(BASIC_URL+`api/v1/customer/product/${productId}`,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+
   private createAuthorizationHeader() {
     return new HttpHeaders().set(
       "Authorization","Bearer "+StorageService.getToken()
